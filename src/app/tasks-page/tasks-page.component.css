@@ -1,0 +1,54 @@
+
+label{
+  font-size: 15px;
+}
+
+.newTask{
+  display: flex;
+  max-width: 400px;
+  width: 100%;
+}
+
+input {
+  font-weight: 300;
+  width: 90%;
+  height: 25px;
+  border: 1px solid #e7e7e7;
+  line-height: 1.1;
+  margin: 0 0 10px 0;
+}
+button, .del-btn{
+  height: 25px;
+  width: 10%;
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+.del-btn{
+  position: absolute;
+  right: 0;
+}
+
+.checkbox{
+  width:15px;
+  margin: 0 10px 0 0;
+}
+
+ul{
+  padding: 0;
+  display: flex;
+  max-width: 400px;
+}
+
+li{
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  vertical-align: middle;
+  border: 2px solid #e7e7e7;
+  position: relative;
+  font-size: 15px;
+  padding-left: 10px;
+}
+
+

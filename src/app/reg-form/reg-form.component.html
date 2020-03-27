@@ -1,0 +1,10 @@
+<h1>Registration form</h1>
+<form class="reg-form" action="tasks">
+  <label for="name">Name</label><br>
+  <input id="name" type="text" placeholder="your name" name="name" [(ngModel)]="name" required><br>
+  <label for="email">Email</label><br>
+  <input id="email" type="email" placeholder="your e-mail" name="email" [(ngModel)]="email" required><br>
+  <label for="password">Password</label><br>
+  <input id="password" type="password" placeholder="create password" name="password" [(ngModel)]="password" required><br>
+  <button (click)="register(name, email, password)">Register</button>
+</form>

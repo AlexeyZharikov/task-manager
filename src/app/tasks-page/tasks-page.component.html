@@ -1,0 +1,12 @@
+<p>Type new Task</p>
+<form class="newTask" action="/">
+  <input type="text" id="task" name="task" [(ngModel)]="text">
+  <button (click)="addTask(text)">+</button>
+</form>
+<p>Your tasks</p>
+<ul *ngFor="let task of tasks">
+  <li>{{task.text}}
+    <button class="del-btn" (click)="deleteTask(task)">x</button>
+  </li>
+</ul>
+
