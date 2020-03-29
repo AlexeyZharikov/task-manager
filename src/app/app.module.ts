@@ -7,11 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { RegFormComponent } from './reg-form/reg-form.component';
+import { RegFormComponent, User } from './reg-form/reg-form.component';
 import { TasksPageComponent } from './tasks-page/tasks-page.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginFormComponent},
+  {path: 'login', component: LoginFormComponent},
   {path: 'register', component: RegFormComponent},
   {path: 'tasks', component: TasksPageComponent}
 ]

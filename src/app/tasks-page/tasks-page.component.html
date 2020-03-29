@@ -1,12 +1,16 @@
+
 <p>Type new Task</p>
 <form class="newTask" action="/">
-  <input type="text" id="task" name="task" [(ngModel)]="text">
+  <input type="text" id="task" name="text" [(ngModel)]="text">
   <button (click)="addTask(text)">+</button>
 </form>
 <p>Your tasks</p>
+<button class="get-btn" (click)="getTasks(tasks)">Show tasks</button>
 <ul *ngFor="let task of tasks">
-  <li>{{task.text}}
-    <button class="del-btn" (click)="deleteTask(task)">x</button>
+  <li>{{task.text}}<br>
+    <button class="edit-btn" (click)="editTask(task, text)">Edit</button>
+    <button class="del-btn" (click)="deleteTask(task)">Del</button>
+    <button class="share-btn" (click)="shareTask(task)">Share</button>
   </li>
 </ul>
 

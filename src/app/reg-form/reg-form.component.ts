@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-export class User{
+export class User {
 
   constructor(
     public name: string,
     public email: string,
     public password: string,
-  ){}
+    public tasks: []
+  ) {}
 }
 
 @Component({
@@ -15,33 +16,41 @@ export class User{
   styleUrls: ['./reg-form.component.css']
 })
 export class RegFormComponent {
-  users = []
+
+  users;
+  name;
+  email;
+  password;
+  tasks = [];
   constructor() { }
 
-  register(name: string, email: string, password: string, tasks: []){
-    let regName = (document.getElementById('name')as HTMLInputElement).value;
-    let regMail = (document.getElementById('email')as HTMLInputElement).value;
-    let regPass = (document.getElementById('password')as HTMLInputElement).value;
-    const usersArr = JSON.parse(localStorage.getItem('users'));
-    for (let key in usersArr){
-      if (regName === usersArr[key]['name'] || regMail === usersArr[key]['email']){
-        return alert('user is already exist');
+  getUsers(){
+    if (this.users = JSON.parse(localStorage.getItem('users'))){
+      return this.users;
+    } else {
+      this.users = [];
+    }
+  }
+
+  register(name, email, password, tasks) {
+    this.getUsers();
+    const regName = (document.getElementById('name')as HTMLInputElement).value;
+    const regMail = (document.getElementById('email')as HTMLInputElement).value;
+    const regPass = (document.getElementById('password')as HTMLInputElement).value;
+    let usersArr = JSON.parse(localStorage.getItem('users'));
+    for (const key in usersArr) {
+      if (regName === usersArr[key].name || regMail === usersArr[key].email) {
+        return alert('User is already exist');
       }
     }
-    if (regName === '' || regMail === '' || regPass === ''){
+    if (regName === '' || regMail === '' || regPass === '') {
       return alert('Invalid data');
-    } else{
-      JSON.parse(localStorage.getItem('users'));
-      this.users.push(new User(name, email, password));
-      localStorage.setItem('users', JSON.stringify(this.users));
+    } else {
 
-      document.location.href = '/';
-
+      this.users.push(new User(name, email, password, tasks));
+      document.location.href = 'login';
     }
-
-    // console.log(this.users[0]['tasks']);
-
-
+    localStorage.setItem('users', JSON.stringify(this.users));
   }
 }
 
